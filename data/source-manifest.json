@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-09-20T00:00:00Z",
+  "scope": "photo retrieval process only",
+  "policy": "Counts include only records with a traceable public URL. No quota is padded.",
+  "sources": {
+    "reddit": [
+      "https://www.reddit.com/r/googlephotos/comments/1lkv1rh",
+      "https://www.reddit.com/r/googlephotos/comments/xl693t/is_there_a_way_to_search_google_photos_using_a/",
+      "https://www.reddit.com/r/googlephotos/comments/1fa4fg1/what_happened_to_the_search_feature_on_the_app/",
+      "https://www.reddit.com/r/googlephotos/comments/1lklsk2/classic_search_is_gone/",
+      "https://www.reddit.com/r/googlephotos/comments/1hpu2k9",
+      "https://www.reddit.com/r/googlephotos/comments/14mu1wj"
+    ],
+    "google_photos_community": [
+      "https://support.google.com/photos/thread/294285546",
+      "https://support.google.com/photos/thread/100793836/photos-not-showing-up-in-google-photos-web-browser-but-do-show-up-when-i-search-by-date?hl=en"
+    ],
+    "apple_app_store": [
+      "https://apps.apple.com/gb/app/google-photos-backup-edit/id962194608?platform=iphone&see-all=reviews"
+    ],
+    "google_play": [],
+    "youtube": [],
+    "forums_social": [],
+    "interviews": []
+  }
+}

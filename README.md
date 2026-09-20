@@ -1,6 +1,6 @@
 # RecallLab — Photo Retrieval Discovery Agent
 
-Working research UI plus a production-ready Supabase schema for retrieval-process evidence.
+Working research UI plus a production-ready Supabase schema for retrieval-process evidence. The UI contains a small verified starter corpus with public source links in `data/source-manifest.json`; it does not claim uncollected records.
 
 ## Run locally
 
@@ -31,3 +31,13 @@ npm run dev
 Every answer returns: synthesis, cohort size, filters, supporting evidence IDs, contradictory evidence IDs, source breakdown, limitations, and any computed metrics. Source filters are applied in SQL before semantic retrieval.
 
 Apply `supabase/schema.sql`, copy `.env.example` to `.env.local`, and add server-only keys in the deployment environment. Never expose the service-role key to the browser.
+
+## Connector requirements
+
+- Reddit: public pages/API, with rate limiting and source URLs preserved.
+- Apple App Store: public reviews feed/page, normalized by storefront.
+- Google Play: public listing collector with locale/country recorded.
+- Google Photos Community: public thread collector; exclude deletion, backup and account-recovery threads before extraction.
+- YouTube: requires `YOUTUBE_API_KEY` and an approved list of video/channel IDs.
+- Forums/social: requires a source allowlist; respect each platform's access rules.
+- Interviews: CSV/JSON upload when research is complete, with participant identifiers pseudonymized.

@@ -2,6 +2,8 @@
 
 Working research UI plus a production-ready Supabase schema for retrieval-process evidence. The UI contains a small verified starter corpus with public source links in `data/source-manifest.json`; it does not claim uncollected records.
 
+The complete candidate-source inventory is maintained in `data/public-evidence-sources.md`. Candidate sources are kept separate from verified evidence counts.
+
 ## Run locally
 
 ```bash

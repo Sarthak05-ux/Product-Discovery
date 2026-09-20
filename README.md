@@ -1,0 +1,33 @@
+# RecallLab — Photo Retrieval Discovery Agent
+
+Working research UI plus a production-ready Supabase schema for retrieval-process evidence.
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Production architecture
+
+- Vinext/Next-compatible React frontend
+- Supabase Postgres + pgvector (`supabase/schema.sql`)
+- OpenAI Responses API for grounded synthesis and structured extraction
+- `text-embedding-3-small` embeddings stored in pgvector
+- Source connectors/import jobs write only records that pass retrieval relevance classification
+
+## Hard ingestion rules
+
+1. Screen for retrieval behavior before extraction or embedding.
+2. Reject storage, backup, crash, pricing, editing, sync, deletion, privacy, sharing, and generic complaints without an observable retrieval process.
+3. Deduplicate using source + source record ID and normalized text hashes in the ingestion worker.
+4. Stop each public source at 5,000 accepted records; never pad a segment to meet a quota.
+5. Store all accepted interview records. Preserve the raw text and source URL for traceability.
+6. Compute counts from structured rows. The model may synthesize retrieved evidence but must not invent statistics.
+
+## Answer contract
+
+Every answer returns: synthesis, cohort size, filters, supporting evidence IDs, contradictory evidence IDs, source breakdown, limitations, and any computed metrics. Source filters are applied in SQL before semantic retrieval.
+
+Apply `supabase/schema.sql`, copy `.env.example` to `.env.local`, and add server-only keys in the deployment environment. Never expose the service-role key to the browser.

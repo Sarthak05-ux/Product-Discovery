@@ -1,0 +1,2 @@
+package_id,country,language,sort_order,collection_started_at,collection_completed_at,raw_reviews_collected,duplicates_removed,irrelevant_reviews_rejected,unclear_reviews,retrieval_reviews_accepted,continuation_token_exhausted
+com.google.android.apps.photos,US,en,newest,,,0,0,0,0,0,false

@@ -20,7 +20,30 @@ create index if not exists evidence_relevance_idx on evidence_records(relevance_
 create index if not exists evidence_clusters_idx on evidence_records using gin(problem_clusters);
 create index if not exists evidence_embedding_idx on evidence_records using hnsw (embedding vector_cosine_ops);
 create table if not exists hypotheses (id text primary key, statement text not null, description text, created_at timestamptz default now());
-create table if not exists ingestion_runs (id uuid primary key default gen_random_uuid(), source text not null, status text not null, screened_count integer default 0, accepted_count integer default 0, rejected_count integer default 0, cap integer not null default 5000, started_at timestamptz default now(), completed_at timestamptz);
+create table if not exists ingestion_runs (
+  id uuid primary key default gen_random_uuid(),
+  source text not null,
+  status text not null check (status in ('queued','collecting','screening','completed','failed')),
+  package_id text,
+  country text,
+  language text,
+  sort_order text,
+  collection_started_at timestamptz,
+  collection_completed_at timestamptz,
+  raw_reviews_collected integer not null default 0 check (raw_reviews_collected >= 0),
+  duplicates_removed integer not null default 0 check (duplicates_removed >= 0),
+  irrelevant_reviews_rejected integer not null default 0 check (irrelevant_reviews_rejected >= 0),
+  unclear_reviews integer not null default 0 check (unclear_reviews >= 0),
+  retrieval_reviews_accepted integer not null default 0 check (retrieval_reviews_accepted >= 0),
+  continuation_token_exhausted boolean not null default false,
+  cap integer not null default 5000 check (cap between 1 and 5000),
+  error_message text,
+  created_at timestamptz not null default now(),
+  check (retrieval_reviews_accepted + irrelevant_reviews_rejected + unclear_reviews <= raw_reviews_collected),
+  check (duplicates_removed <= raw_reviews_collected)
+);
+create index if not exists ingestion_runs_source_idx on ingestion_runs(source, package_id);
+create index if not exists ingestion_runs_segment_idx on ingestion_runs(country, language, sort_order);
 create or replace function match_evidence(query_embedding vector(1536), match_count int default 20, source_filter text[] default null)
 returns table(id uuid, source text, raw_text text, similarity float) language sql stable as $$
   select e.id,e.source,e.raw_text,1-(e.embedding <=> query_embedding) similarity from evidence_records e

@@ -1,0 +1,14 @@
+{
+  "package_id": "com.google.android.apps.photos",
+  "country": "US",
+  "language": "en",
+  "sort_order": "newest",
+  "collection_started_at": null,
+  "collection_completed_at": null,
+  "raw_reviews_collected": 0,
+  "duplicates_removed": 0,
+  "irrelevant_reviews_rejected": 0,
+  "unclear_reviews": 0,
+  "retrieval_reviews_accepted": 0,
+  "continuation_token_exhausted": false
+}

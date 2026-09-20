@@ -4,6 +4,8 @@ Working research UI plus a production-ready Supabase schema for retrieval-proces
 
 The complete candidate-source inventory is maintained in `data/public-evidence-sources.md`. Candidate sources are kept separate from verified evidence counts.
 
+Google Play collection runs use the exact audit fields in `data/google-play-collection-report-template.csv` and `.json`; the same fields are enforced by the `ingestion_runs` table in `supabase/schema.sql`.
+
 ## Run locally
 
 ```bash

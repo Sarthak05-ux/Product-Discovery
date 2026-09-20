@@ -1,6 +1,6 @@
 create extension if not exists vector;
 create table if not exists evidence_records (
-  id uuid primary key default gen_random_uuid(), source text not null check (source in ('google_play','app_store','reddit','google_support','youtube','forum_social','interview')),
+  id uuid primary key default gen_random_uuid(), source text not null check (source in ('google_play','app_store','reddit','google_support','forum_social','interview')),
   source_record_id text, source_url text, published_at timestamptz, raw_text text not null,
   relevance_status text not null check (relevance_status in ('relevant','irrelevant','unclear')),
   relevance_reason text, asset_type text, retrieval_goal text,

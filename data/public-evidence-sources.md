@@ -34,7 +34,6 @@ This is the master inventory of places where public evidence about photo retriev
 
 | Source | Public entry point | Evidence type | Access / collection note | Registry status |
 |---|---|---|---|---|
-| YouTube | https://www.youtube.com/ | Comments on Google Photos, Apple Photos and photo-search videos | Use YouTube Data API; requires API key and approved video/channel seed list | Approved, credential required |
 | TikTok | https://www.tiktok.com/ | Comments on photo-search demonstrations | Public availability and API access vary; do not scrape behind login | Candidate, policy review |
 | Instagram | https://www.instagram.com/ | Comments on product/tutorial posts | Use only public, permitted access; often login-gated | Candidate, policy review |
 | Vimeo | https://vimeo.com/ | Comments on photo-management demos | Low expected volume; use only public comments | Optional candidate |

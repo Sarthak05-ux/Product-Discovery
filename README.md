@@ -42,6 +42,5 @@ Apply `supabase/schema.sql`, copy `.env.example` to `.env.local`, and add server
 - Apple App Store: public reviews feed/page, normalized by storefront.
 - Google Play: public listing collector with locale/country recorded.
 - Google Photos Community: public thread collector; exclude deletion, backup and account-recovery threads before extraction.
-- YouTube: requires `YOUTUBE_API_KEY` and an approved list of video/channel IDs.
 - Forums/social: requires a source allowlist; respect each platform's access rules.
 - Interviews: CSV/JSON upload when research is complete, with participant identifiers pseudonymized.

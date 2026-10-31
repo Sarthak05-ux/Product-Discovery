@@ -44,3 +44,6 @@ Apply `supabase/schema.sql`, copy `.env.example` to `.env.local`, and add server
 - Google Photos Community: public thread collector; exclude deletion, backup and account-recovery threads before extraction.
 - Forums/social: requires a source allowlist; respect each platform's access rules.
 - Interviews: CSV/JSON upload when research is complete, with participant identifiers pseudonymized.
+
+## Project Improvements
+This branch is used to test the GitHub pull request workflow.
